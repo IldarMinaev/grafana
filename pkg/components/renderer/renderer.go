@@ -57,7 +57,7 @@ func RenderToFile(params *RenderOpts, filetype string) (string, error) {
 
 	cmd := exec.Command(binPath, "--ignore-ssl-errors=true", scriptPath, "url="+params.Url, "width="+params.Width,
 		"height="+params.Height, "path="+renderfilePath, "cookiename="+setting.SessionOptions.CookieName,
-		"domain="+setting.Domain, "sessionid="+params.SessionId)
+		"domain="+setting.Domain, "sessionid="+params.SessionId, "timeout="+params.Timeout)
 	stdout, err := cmd.StdoutPipe()
 
 	if err != nil {
